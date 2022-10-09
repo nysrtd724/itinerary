@@ -1,13 +1,42 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import firebase, { onAuthStateChanged, signOut } from "firebase/auth";
+import { auth } from "./firebase";
+import { useNavigate, Navigate } from "react-router-dom";
 
 const Mypage = () => {
+  const [user, setUser] = useState<firebase.User | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      setLoading(false);
+    });
+  }, []);
+
+  const navigate = useNavigate();
+
+  const logout = async () => {
+    await signOut(auth);
+    navigate("/login/");
+  };
+
   return (
-    <div>
-      <h1>マイページ</h1>
-      <div>
-        <button>ログアウト</button>
-      </div>
-    </div>
+    <>
+      {!loading && (
+        <>
+          {!user ? (
+            <Navigate to={`/login/`} />
+          ) : (
+            <>
+              <h1>マイページ</h1>
+              <p>{user?.email}</p>
+              <button onClick={logout}>ログアウト</button>
+            </>
+          )}
+        </>
+      )}
+    </>
   );
 };
 
