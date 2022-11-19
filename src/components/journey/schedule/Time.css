@@ -1,0 +1,22 @@
+.time-timebox {
+  display: flex;
+  align-items: center;
+}
+
+.time-input {
+  width: 110px;
+}
+
+.time-deleteIcon {
+  color:  #3987fd;
+}
+
+.time-plan {
+  margin-top: 10px;
+}
+
+.time-button {
+  border-radius: 5px !important;
+  background-color: #3987fd !important;
+  margin-top: 20px !important;
+}

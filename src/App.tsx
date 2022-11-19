@@ -4,6 +4,7 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 import Mypage from "./components/Mypage";
 import Journey from "./components/Journey";
+import Decided from "./components/mypage/Decided";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
           <Route path={`/login/`} element={<Login />} />
           <Route path={`/`} element={<Mypage />} />
           <Route path={`/journey/`} element={<Journey />} />
+          <Route path={`/decided/`} element={<Decided />} />
         </Routes>
       </BrowserRouter>
     </div>

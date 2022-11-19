@@ -1,0 +1,12 @@
+.title-date {
+  display: flex;
+  justify-content: center;
+}
+
+.title-start {
+    width: 200px;
+}
+
+.title-end {
+  width: 200px;
+}

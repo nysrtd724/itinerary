@@ -1,11 +1,12 @@
 import React from "react";
-import Register from "./journey/register/ Register";
+import Dataregister from "./journey/dataregister/Dataregister";
 import Schedule from "./journey/schedule/Schedule";
 import Title from "./journey/title/Title";
+import "./Journey.css";
 
 function Journey() {
   return (
-    <div>
+    <div className="journey-page">
       {/* title */}
       <Title />
 
@@ -13,7 +14,7 @@ function Journey() {
       <Schedule />
 
       {/* register */}
-      <Register />
+      <Dataregister />
     </div>
   );
 }

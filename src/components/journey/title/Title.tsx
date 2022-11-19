@@ -1,12 +1,15 @@
 import React from "react";
+import "./Title.css";
 
 function Title() {
   return (
     <div>
       <input placeholder="タイトル（例：大阪旅行）" type="text"></input>
-      <input type="date"></input>
-      <p>〜</p>
-      <input type="date"></input>
+      <div className="title-date">
+        <input className="title-start" type="date"></input>
+        <h3>〜</h3>
+        <input className="title-end" type="date"></input>
+      </div>
     </div>
   );
 }

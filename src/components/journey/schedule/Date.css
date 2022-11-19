@@ -1,0 +1,18 @@
+.date-datebox {
+  display: flex;
+  align-items: center;
+}
+
+.date-input {
+  width: 200px;
+}
+
+.date-deleteIcon {
+  color: #3987fd;
+}
+
+.date-button {
+  border-radius: 5px !important;
+  background-color: #3987fd !important;
+  margin-top: 35px !important;
+}
