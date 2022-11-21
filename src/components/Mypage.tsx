@@ -19,20 +19,9 @@ function Mypage() {
     });
     const itineraryDate = collection(db, "itinerary");
     getDocs(itineraryDate).then((querySnapshot) => {
-      setItinerary(querySnapshot.docs.map((doc) => doc.data()));
+      setItinerary(querySnapshot.docs);
     });
     console.log("a");
-  }, []);
-
-  useEffect(() => {
-    onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-      setLoading(false);
-    });
-    const itineraryDate = collection(db, "itinerary");
-    getDocs(itineraryDate).then((querySnapshot) => {
-      setItinerary(querySnapshot.docs.map((doc) => doc.data()));
-    });
   }, []);
 
   const navigate = useNavigate();
@@ -41,11 +30,6 @@ function Mypage() {
     await signOut(auth);
     navigate("/login/");
   };
-
-  const itineraryDate = collection(db, "itinerary");
-  getDocs(itineraryDate).then((querySnapshot) => {
-    setItinerary(querySnapshot.docs.map((doc) => doc.data()));
-  });
 
   return (
     <>
@@ -58,7 +42,7 @@ function Mypage() {
               <h1>しおり一覧</h1>
               <p>
                 {itinerary.map((item) => (
-                  <Link to={`/decided/`}>{item.title}</Link>
+                  <Link to={`/decided/${item.id}`}>{item.data().title}</Link>
                 ))}
               </p>
               <p>
