@@ -5,7 +5,6 @@ import { useNavigate, Navigate, Link } from "react-router-dom";
 import AddIcon from "@mui/icons-material/Add";
 import { db } from "./firebase";
 import { collection, getDocs } from "firebase/firestore";
-import { isTemplateMiddle } from "typescript";
 
 function Mypage() {
   const [user, setUser] = useState<firebase.User | null>(null);
@@ -41,7 +40,9 @@ function Mypage() {
               <h1>しおり一覧</h1>
               <p>
                 {itinerary.map((item) => (
-                  <Link to={`/decided/${item.id}`}>{item.data().title}</Link>
+                  <Link key={item.id} to={`/decided/${item.id}`}>
+                    {item.data().title}
+                  </Link>
                 ))}
               </p>
               <p>

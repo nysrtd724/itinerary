@@ -1,9 +1,5 @@
 import React from "react";
 
-type Props = {
-  title: string;
-};
-
 function Decided() {
   return (
     <div>
