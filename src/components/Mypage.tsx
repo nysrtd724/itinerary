@@ -21,7 +21,6 @@ function Mypage() {
     getDocs(itineraryDate).then((querySnapshot) => {
       setItinerary(querySnapshot.docs);
     });
-    console.log("a");
   }, []);
 
   const navigate = useNavigate();
